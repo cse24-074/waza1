@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support | Premier League</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="styles.css" />
+
+  <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color:#F5F5F5;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #38003c;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        
+        .content-section {
+            border: 2px solid #38003c;
+            border-radius: 8px;
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 1200px;
+            background-color: white;
+        }
+        
+        /* Success message styling */
+         .success-message {
+            display: none;
+            background: white;
+            color: #38003c; /* Premier League purple text */
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid #38003c; /* Premier League purple border */
+            box-shadow: 0 2px 4px rgba(56, 0, 60, 0.2); /* Purple shadow */
+       }
+    </style>
+    
+</head>
+<!--  Body -->
+<body>
+    <!-- Club bar -->
+    <section class="club-bar">
+        <div class="club-container">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League Icon">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Arsenal-Logo-500x281.png" alt="Arsenal">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Aston-Villa-Logo.png" alt="Aston Villa">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Bournemouth-F.C-Logo-500x281.png" alt="AFC Bournemouth">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Brentford-Logo-500x281.png" alt="Brentford">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Brighton-Hove-Albion-Logo-500x281.png" alt="Brighton & Hove Albion">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Chelsea-Logo-500x281.png" alt="Chelsea">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Crystal-Palace-Logo-500x281.png" alt="Crystal Palace">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Everton-Logo.png" alt="Everton">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Fulham-Logo-500x281.png" alt="Fulham">
+            <img src="https://ssl.gstatic.com/onebox/media/sports/logos/56vquJBk5U16Dng7txLXCw_64x64.png" alt="Ipswich Town">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Leicester-City-Logo.png" alt="Leicester City">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png" alt="Liverpool">
+            <img src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png" alt="Manchester City">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Manchester-United-Logo-500x281.png" alt="Manchester United">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Newcastle-United-Logo-500x281.png" alt="Newcastle United">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Nottingham-Forest-Logo-500x281.png" alt="Nottingham Forest">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Southampton-Logo-500x281.png" alt="Southampton">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Tottenham-Hotspur-Logo-500x281.png" alt="Tottenham Hotspur">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/West-Ham-United-Logo-500x281.png" alt="West Ham United">
+            <img src="https://logos-world.net/wp-content/uploads/2023/08/Wolverhampton-Wanderers-Logo-500x281.png" alt="Wolverhampton Wanderers">
+        </div>
+    </section>
+   
+    <!-- Authentication Modals --> 
+
+    <!-- login Modal --> 
+  <div id="loginModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="loginForm">
+        <h2>Login to Your Account</h2>
+        <div>
+          <input type="email" id="loginEmail" placeholder="Email Address" required>
+          <div class="form-error" id="loginEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <div class="form-error" id="loginPasswordError"></div>
+        </div>
+        <button type="submit">Login</button>
+        <div class="auth-form-footer">
+          Don't have an account? <a href="#" id="showSignup">Sign up</a>
+        </div>
+      </form>
+    </div>
+     </div>
+
+<!-- Signu Modal --> 
+     <div id="signupModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="signupForm">
+        <h2>Create Your Account</h2>
+        <div>
+          <input type="text" id="signupName" placeholder="Full Name" required>
+          <div class="form-error" id="signupNameError"></div>
+        </div>
+        <div>
+          <input type="email" id="signupEmail" placeholder="Email Address" required>
+          <div class="form-error" id="signupEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupPassword" placeholder="Password (min 8 characters)" required>
+          <div class="form-error" id="signupPasswordError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+          <div class="form-error" id="signupConfirmPasswordError"></div>
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="auth-form-footer">
+          Already have an account? <a href="#" id="showLogin">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message Modal -->
+  <div id="successModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <div class="auth-form">
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage">Your account has been created successfully.</p>
+        <button id="successCloseBtn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Header  --> 
+    <header>
+        <button class="mobile-menu-button">☰</button>
+        <div class="navbar-wrapper">
+    <nav class="navbar">
+  <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Logo" class="logo">
+  
+  
+  
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="clubs.html">Clubs</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="feedback.html"class="active">Help & Support</a></li>
+  </ul>
+  </div>
+        <div class="auth-buttons">
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+        </div>
+    </header>
+
+<!-- Hero Section--> 
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Premier League Help & Support</h1>
+            <p>We're here to assist you.</p>
+        </div>
+    </section>
+
+    <!--Content section -->
+    <div class="content-section">
+        <div class="container">
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>How do I purchase match tickets?</h3>
+                    <p>Tickets can be purchased through our official ticketing partner. Visit the "Fixtures" page and select your match.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How can I report a website issue?</h3>
+                    <p>Use the form below to report technical problems. Include screenshots if possible.</p>
+                </div>
+            </section>
+
+            <section id="contact-form">
+                <h2>Contact Us</h2>
+
+                <!-- Success message div  -->
+                <div id="success-message" class="success-message">
+                    Your request has been submitted successfully! We'll get back to you soon.
+                </div>
+                <form id="feedback-form">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="issue-type">Issue Type:</label>
+                    <select id="issue-type" name="issue-type">
+                        <option value="tickets">Ticket Support</option>
+                        <option value="website">Website Problem</option>
+                        <option value="feedback">General Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Submit Request</button>
+                </form>
+            </section>
+
+            <section id="emergency-contact">
+                <h2>Urgent Support</h2>
+                <p>For immediate assistance on matchdays, call our helpline:</p>
+                <p><strong>+44 20 7864 9000</strong></p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer --> 
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Premier League Logo">
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Competition</h4>
+                    <a href="#">About the PL</a>
+                    <a href="#">History</a>
+                    <a href="#">Trophy</a>
+                    <a href="#">Organisation</a>
+                </div>
+                <div class="link-column">
+                    <h4>Clubs</h4>
+                    <a href="#">All Clubs</a>
+                    <a href="#">Stadiums</a>
+                    <a href="#">Kits</a>
+                </div>
+                <div class="link-column">
+                    <h4>More</h4>
+                    <a href=" http://preml.ge/FantasyPremierLeague">Fantasy PL</a>
+                    <a href="#">Official App</a>
+                    <a href="#">Shop</a>
+                </div>
+            </div>
+            <div class="social-media">
+                <a href="http://preml.ge/PremierLeagueFacebook"><i class="fab fa-facebook"></i></a>
+                <a href=" https://preml.ge/PremierLeagueX"><i class="fab fa-twitter"></i></a>
+                <a href="http://preml.ge/PremierLeagueInstagram"><i class="fab fa-instagram"></i></a>
+                <a href="http://preml.ge/PremierLeagueYouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Premier League. All rights reserved.</p>
+        </div>
+    </footer>
+
+<!-- Internal JavaScript --> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedback-form');
+            const successMessage = document.getElementById('success-message');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // 
+                 successMessage.style.display = 'block';
+                form.reset();
+                setTimeout(function() {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                 });
+        });
+    </script>
+
+<!-- External Javascript --> 
+    <script src="script.js"></script>
+
+</body>
+</html>

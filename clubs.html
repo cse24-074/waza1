@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clubs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<!-- Body -->
+  <body>
+
+    <!-- Club Bar Section -->
+  <section class="club-bar">
+    <div class="club-container">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League Icon">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Arsenal-Logo-500x281.png" alt="Arsenal">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Aston-Villa-Logo.png" alt="Aston Villa">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Bournemouth-F.C-Logo-500x281.png" alt="AFC Bournemouth">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brentford-Logo-500x281.png" alt="Brentford">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brighton-Hove-Albion-Logo-500x281.png" alt="Brighton & Hove Albion">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Chelsea-Logo-500x281.png" alt="Chelsea">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Crystal-Palace-Logo-500x281.png" alt="Crystal Palace">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Everton-Logo.png" alt="Everton">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Fulham-Logo-500x281.png" alt="Fulham">
+      <img src="https://ssl.gstatic.com/onebox/media/sports/logos/56vquJBk5U16Dng7txLXCw_64x64.png" alt="Ipswich Town">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Leicester-City-Logo.png" alt="Leicester City">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png" alt="Liverpool">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png" alt="Manchester City">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Manchester-United-Logo-500x281.png" alt="Manchester United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Newcastle-United-Logo-500x281.png" alt="Newcastle United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Nottingham-Forest-Logo-500x281.png" alt="Nottingham Forest">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Southampton-Logo-500x281.png" alt="Southampton">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Tottenham-Hotspur-Logo-500x281.png" alt="Tottenham Hotspur">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/West-Ham-United-Logo-500x281.png" alt="West Ham United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Wolverhampton-Wanderers-Logo-500x281.png" alt="Wolverhampton Wanderers">
+    </div>
+  </section>
+
+  <!-- Authentication Modals -->
+  <div id="loginModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="loginForm">
+        <h2>Login to Your Account</h2>
+        <div>
+          <input type="email" id="loginEmail" placeholder="Email Address" required>
+          <div class="form-error" id="loginEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <div class="form-error" id="loginPasswordError"></div>
+        </div>
+        <button type="submit">Login</button>
+        <div class="auth-form-footer">
+          Don't have an account? <a href="#" id="showSignup">Sign up</a>
+        </div>
+      </form>
+    </div>
+     </div>
+
+  <!-- Sign Up Modal -->
+   <div id="signupModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="signupForm">
+        <h2>Create Your Account</h2>
+        <div>
+          <input type="text" id="signupName" placeholder="Full Name" required>
+          <div class="form-error" id="signupNameError"></div>
+        </div>
+        <div>
+          <input type="email" id="signupEmail" placeholder="Email Address" required>
+          <div class="form-error" id="signupEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupPassword" placeholder="Password (min 8 characters)" required>
+          <div class="form-error" id="signupPasswordError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+          <div class="form-error" id="signupConfirmPasswordError"></div>
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="auth-form-footer">
+          Already have an account? <a href="#" id="showLogin">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message Modal -->
+  <div id="successModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <div class="auth-form">
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage">Your account has been created successfully.</p>
+        <button id="successCloseBtn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <button class="mobile-menu-button">☰</button>
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+  <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Logo" class="logo">
+  
+  
+  
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="clubs.html"class="active">Clubs</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="feedback.html">Help & Support</a></li>
+  </ul>
+  </div>
+    <div class="auth-buttons">
+      <button class="login-btn">Login</button>
+      <button class="signup-btn">Sign Up</button>
+    </div>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+ <section class="hero">
+  <div class="hero-content">
+    <h1>Premier League Clubs</h1>
+    <p>Welcome to our Premier League Club Hub, where you can explore all 20 top-flight football clubs from the English Premier League. Click on any club to visit its official website and hover over the club’s badge to see their stadium name. Whether you’re a passionate supporter, a fantasy football fan, or just curious about the league, this page gives you a quick and interactive way to stay updated with your favorite teams.</p>
+  </div>
+</section>
+
+
+
+<!-- Right-aligned search container -->
+<div class="search-container" style="display: flex; justify-content: flex-start; margin: 20px 0; padding: 0 20px;">
+  <div class="search-box" style="display: flex; max-width: 500px; width: 100%;">
+    <input type="text" id="club-search" placeholder="Search for a club..." style="padding: 12px 15px; border: 2px solid #38003c; border-radius: 4px 0 0 4px; width: 100%; font-size: 16px;">
+    <button id="search-button" style="background-color: #38003c; color: white; border: none; padding: 0 20px; border-radius: 0 4px 4px 0; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+</div>
+
+<div class="no-results" id="no-results" style="text-align: center; padding: 20px; font-size: 18px; color: #38003c; display: none;">
+  No clubs found matching your search.
+</div>
+
+
+
+<!-- Clubs Container -->
+  <div class="clubs-container">
+    <!-- Arsenal -->
+    <div class="club" data-stadium="Emirates Stadium" data-url="https://www.arsenal.com">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Arsenal-Logo-500x281.png" alt="Arsenal Logo" />
+      <a href="#">Arsenal</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Aston Villa -->
+    <div class="club" data-stadium="Villa Park" data-url="https://www.avfc.co.uk">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Aston-Villa-Logo.png" alt="Aston Villa Logo" />
+      <a href="#">Aston Villa</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- AFC Bournemouth -->
+    <div class="club" data-stadium="Vitality Stadium" data-url="https://www.afcb.co.uk/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Bournemouth-F.C-Logo-500x281.png" alt="AFC Bournemouth Logo" />
+      <a href="#">AFC Bournemouth</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Brentford -->
+    <div class="club" data-stadium="Gtech Community Stadium" data-url="https://www.brentfordfc.com/en">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brentford-Logo-500x281.png" alt="Brentford Logo" />
+      <a href="#">Brentford</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Brighton -->
+    <div class="club" data-stadium="American Express Stadium" data-url="https://www.brightonandhovealbion.com/pages/en/home">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brighton-Hove-Albion-Logo-500x281.png" alt="Brighton Logo" />
+      <a href="#">Brighton & Hove Albion F.C.</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Chelsea -->
+    <div class="club" data-stadium="Stamford Bridge" data-url="https://www.chelseafc.com">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Chelsea-Logo-500x281.png" alt="Chelsea Logo" />
+      <a href="#">Chelsea</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Crystal Palace -->
+    <div class="club" data-stadium="Selhurst Park Stadium" data-url="https://www.cpfc.co.uk/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Crystal-Palace-Logo-500x281.png" alt="Crystal-Palace Logo" />
+      <a href="#">Crystal Palace</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Everton -->
+<div class="club" data-stadium="Everton Stadium" data-url="https://www.evertonfc.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Everton-Logo.png" alt="Everton Logo" />
+      <a href="#">Everton</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Fulham -->
+    <div class="club" data-stadium="Craven Cottage" data-url="https://www.fulhamfc.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Fulham-Logo-500x281.png" alt="Fulham Logo" />
+      <a href="#">Fulham</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Ipswich -->
+    <div class="club" data-stadium="Portman Road Stadium" data-url="https://www.itfc.co.uk/">
+      <img src="https://logowik.com/content/uploads/images/ipswich-town-fc6124.logowik.com.webp" alt="Ipswich Logo" />
+      <a href="#">Ipswich</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Leceister -->
+    <div class="club" data-stadium="King Power Stadium" data-url="https://www.lcfc.com/pages/en/home">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Leicester-City-Logo.png" alt="Leceister Logo" />
+      <a href="#">Leceister City</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Liverpool  -->
+    <div class="club" data-stadium="Anfield" data-url="https://www.liverpoolfc.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png" alt="Liverpool Logo" />
+      <a href="#">Liverpool</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Manchester City -->
+    <div class="club" data-stadium="Etihad Stadium" data-url="https://www.mancity.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png" alt="Manchester City Logo" />
+      <a href="#">Manchester City</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Manchester United -->
+    <div class="club" data-stadium="Old Trafford" data-url="https://www.manutd.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Manchester-United-Logo-500x281.png" alt="Manchester United Logo" />
+      <a href="#">Manchester United</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Newcastle United -->
+    <div class="club" data-stadium="St James’ Park" data-url="https://www.nufc.co.uk/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Newcastle-United-Logo-500x281.png" alt=" Newcastle United Logo- Logo" />
+      <a href="#">Newcastle United</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Nottingham Forest -->
+    <div class="club" data-stadium="City Ground" data-url="https://www.nottinghamforest.co.uk/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Nottingham-Forest-Logo-500x281.png" alt="Nottingham Forest Logo" />
+      <a href="#">Nottingham Forest</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Southampton -->
+    <div class="club" data-stadium="St Mary's Stadium" data-url="https://www.southamptonfc.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Southampton-Logo-500x281.png" alt="Southampton Logo" />
+      <a href="#">Southampton</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Tottenhham  -->
+    <div class="club" data-stadium="Tottenham Hotspur Stadium" data-url= "https://www.tottenhamhotspur.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Tottenham-Hotspur-Logo-500x281.png" alt="Tottenham Hotspur Logo" />
+      <a href="#">Tottenhham Hotspur</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- West Ham -->
+    <div class="club" data-stadium="London Stadium" data-url="https://www.whufc.com/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/West-Ham-United-Logo-500x281.png" alt="West Ham Logo" />
+      <a href="#">West Ham United</a>
+      <div class="tooltip"></div>
+    </div>
+
+    <!-- Wolves -->
+    <div class="club" data-stadium="Molineux Stadium" data-url="https://www.wolves.co.uk/">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Wolverhampton-Wanderers-Logo-500x281.png" alt="Wolverhampton-Wanderers Logo" />
+      <a href="#">Wolverhampton Wanderers</a>
+      <div class="tooltip"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Premier League Logo">
+      </div>
+      <div class="footer-links">
+        <div class="link-column">
+          <h4>Competition</h4>
+          <a href="#">About the PL</a>
+          <a href="#">History</a>
+          <a href="#">Trophy</a>
+          <a href="#">Organisation</a>
+        </div>
+        <div class="link-column">
+          <h4>Clubs</h4>
+          <a href="#">All Clubs</a>
+          <a href="#">Stadiums</a>
+          <a href="#">Kits</a>
+        </div>
+        <div class="link-column">
+          <h4>More</h4>
+          <a href=" http://preml.ge/FantasyPremierLeague">Fantasy PL</a>
+          <a href="#">Official App</a>
+          <a href="#">Shop</a>
+        </div>
+      </div>
+      <div class="social-media">
+        <a href="http://preml.ge/PremierLeagueFacebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://preml.ge/PremierLeagueX"><i class="fab fa-twitter"></i></a>
+        <a href="http://preml.ge/PremierLeagueInstagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://preml.ge/PremierLeagueYouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Premier League. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ✅ Internal JavaScript -->
+  <script>
+    document.querySelectorAll('.club').forEach(club => {
+      const tooltip = club.querySelector('.tooltip');
+      const stadium = club.dataset.stadium;
+      const link = club.querySelector('a');
+      const url = club.dataset.url;
+
+      // Show tooltip on hover
+      club.addEventListener('mouseenter', () => {
+        tooltip.textContent = `Stadium: ${stadium}`;
+        tooltip.style.display = 'block';
+      });
+
+      // Hide tooltip on mouse leave
+      club.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+
+      // Open official website on name click
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(url, '_blank');
+      });
+    });
+     document.getElementById('search-button').addEventListener('click', searchClubs);
+    document.getElementById('club-search').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') {
+        searchClubs();
+      }
+    });
+    
+    function searchClubs() {
+      const searchTerm = document.getElementById('club-search').value.toLowerCase();
+      const clubs = document.querySelectorAll('.club');
+      let hasResults = false;
+      clubs.forEach(club => {
+        const clubName = club.querySelector('a').textContent.toLowerCase();
+        if (clubName.includes(searchTerm)) {
+          club.style.display = 'block';
+          hasResults = true;
+        } else {
+          club.style.display = 'none';
+        }
+      });
+      
+      document.getElementById('no-results').style.display = hasResults ? 'none' : 'block';
+    }
+  </script>
+
+
+  <!-- ✅ External  JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>

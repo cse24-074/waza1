@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier League - Latest News</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Base Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 0px;
+}
+
+/* News Feed Layout */
+.news-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* News Card Styling */
+.news-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card h2 {
+  font-size: 1.25rem;
+  margin: 15px;
+  color: #1a1a1a;
+}
+
+.news-card .date {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0 15px;
+}
+
+.news-card p {
+  margin: 10px 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.news-card a {
+  display: block;
+  margin: 15px;
+  padding: 10px;
+  background-color: #38003C; 
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.news-card a:hover {
+  background-color: #EFFF00;
+  color: #000;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .news-card img {
+    height: 180px;
+  }
+
+  .news-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .news-card p {
+    font-size: 0.9rem;
+  }
+}
+
+  </style>
+
+</head>
+<body> <!-- Club Logos Bar -->
+  <section class="club-bar">
+    <div class="club-container">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg" alt="Premier League Icon">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Arsenal-Logo-500x281.png" alt="Arsenal">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Aston-Villa-Logo.png" alt="Aston Villa">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Bournemouth-F.C-Logo-500x281.png" alt="AFC Bournemouth">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brentford-Logo-500x281.png" alt="Brentford">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Brighton-Hove-Albion-Logo-500x281.png" alt="Brighton & Hove Albion">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Chelsea-Logo-500x281.png" alt="Chelsea">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Crystal-Palace-Logo-500x281.png" alt="Crystal Palace">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Everton-Logo.png" alt="Everton">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Fulham-Logo-500x281.png" alt="Fulham">
+      <img src="https://logowik.com/content/uploads/images/ipswich-town-fc6124.logowik.com.webp" alt="Ipswich Town">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Leicester-City-Logo.png" alt="Leicester City">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Liverpool-Logo.png" alt="Liverpool">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Manchester-City-Logo.png" alt="Manchester City">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Manchester-United-Logo-500x281.png" alt="Manchester United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Newcastle-United-Logo-500x281.png" alt="Newcastle United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Nottingham-Forest-Logo-500x281.png" alt="Nottingham Forest">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Southampton-Logo-500x281.png" alt="Southampton">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Tottenham-Hotspur-Logo-500x281.png" alt="Tottenham Hotspur">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/West-Ham-United-Logo-500x281.png" alt="West Ham United">
+      <img src="https://logos-world.net/wp-content/uploads/2023/08/Wolverhampton-Wanderers-Logo-500x281.png" alt="Wolverhampton Wanderers">
+    </div>
+  </section>
+
+  <!-- Authentication Modals -->
+   
+   <!-- login Modal -->
+  <div id="loginModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="loginForm">
+        <h2>Login to Your Account</h2>
+        <div>
+          <input type="email" id="loginEmail" placeholder="Email Address" required>
+          <div class="form-error" id="loginEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <div class="form-error" id="loginPasswordError"></div>
+        </div>
+        <button type="submit">Login</button>
+        <div class="auth-form-footer">
+          Don't have an account? <a href="#" id="showSignup">Sign up</a>
+        </div>
+      </form>
+    </div>
+     </div>
+
+      <!-- signupmodal -->
+        <div id="signupModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <form class="auth-form" id="signupForm">
+        <h2>Create Your Account</h2>
+        <div>
+          <input type="text" id="signupName" placeholder="Full Name" required>
+          <div class="form-error" id="signupNameError"></div>
+        </div>
+        <div>
+          <input type="email" id="signupEmail" placeholder="Email Address" required>
+          <div class="form-error" id="signupEmailError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupPassword" placeholder="Password (min 8 characters)" required>
+          <div class="form-error" id="signupPasswordError"></div>
+        </div>
+        <div>
+          <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+          <div class="form-error" id="signupConfirmPasswordError"></div>
+        </div>
+        <button type="submit">Sign Up</button>
+        <div class="auth-form-footer">
+          Already have an account? <a href="#" id="showLogin">Login</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message Modal -->
+  <div id="successModal" class="auth-modal">
+    <div class="auth-modal-content">
+      <span class="auth-close-btn">&times;</span>
+      <div class="auth-form">
+        <h2 id="successTitle">Success!</h2>
+        <p id="successMessage">Your account has been created successfully.</p>
+        <button id="successCloseBtn">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <button class="mobile-menu-button">☰</button>
+
+    
+    <div class="navbar-wrapper">
+   <nav class="navbar">
+  <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Logo" class="logo">
+  
+  
+  
+  <ul class="nav-links">
+    <li><a href="index.html" >Home</a></li>
+    <li><a href="fixtures.html">Fixtures</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="clubs.html">Clubs</a></li>
+     <li><a href="news.html"class="active">News</a></li>
+    <li><a href="feedback.html">Help & Support</a></li>
+  </ul>
+  </div>
+
+    <div class="auth-buttons">
+      <button class="login-btn">Login</button>
+      <button class="signup-btn">Sign Up</button>
+       </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Premier League Latest News</h1>
+      <p>Stay updated with the latest headlines from the Premier League.</p>
+    </div>
+  </section>
+ 
+
+  <main>
+    <section class="news-feed">
+      <article class="news-card">
+        <img src="https://resources.premierleague.pulselive.com/photo-resources/2025/05/18/08540d1f-1711-41cd-a0f3-75a1f429c6d7/1-RACE-FOR-EUROPE-LEAD.jpg?width=1400&height=800" alt="News headline image">
+        <h2>Matchday 38 Preview</h2>
+        <p class="date">May 25, 2025</p>
+        <p>All you need to know as Premier League clubs try to secure UEFA Champions League, Europa League or Conference League football.</p>
+        <a href="full-article1.html">Read More →</a>
+      </article>
+
+      <article class="news-card">
+        <img src="https://scontent-jnb2-1.xx.fbcdn.net/v/t39.30808-6/499749638_1253101939512601_68680726014611250_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=127cfc&_nc_ohc=fNaBVDoyNvkQ7kNvwHAuwg4&_nc_oc=AdnStujSDpoC_MxIrfsFbqH7HbB3V1dVA54TANWJsZLypmbFAdWvX-AbyTzQ7cHXAjk&_nc_zt=23&_nc_ht=scontent-jnb2-1.xx&_nc_gid=PzUzVaHBkqQ0m2fghdCP0A&oh=00_AfLiuTJ-bRnNMbUk3QW38uVy4YLjr0BIld_vmXaorbLuPQ&oe=6837B815" alt="News headline image">
+        <h2>Player of the Season</h2>
+        <p class="date">May 24, 2025</p>
+        <p>Liverpool's Egyptian joins exclusive club of two-time winners after being voted standout player of Premier League campaign...</p>
+        <a href="full-article2.html">Read More →</a>
+      </article>
+       
+      <article class="news-card">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT9JJH939mPibndzd1hHVmA5SecwRDGqamvLDjMuizd5cmamr_iCJeCSo-9PJnxZSl9cG8BDAAhU1_W48oSBfXrZA" alt="Huijsen">
+        <h2>Transfers News</h2>
+        <p class="date">May 25, 2025</p>
+        <p>Huijsen to depart Bournemouth for Real Madrid for £50million.</p>
+        <a href="full-article3.html">Read More →</a>
+      </article>
+
+      <article class="news-card">
+        <img src="https://resources.premierleague.pulselive.com/photo-resources/2025/05/26/e5c3e4ae-0170-4434-85b8-1b03a5e0320a/MW38-Wrap-composite-with-overlay-v2.jpg?width=1400&height=800" alt="Premier League Final Day">
+        <h2>The Wrap: What happened on the final day</h2>
+        <p class="date">May 25, 2025</p>
+        <p>Ben Bloom reflects on the last 10 matches of an enthralling 2024/25 Premier League season.</p>
+        <a href="full-article4.html">Read More →</a>
+      </article>
+
+      <article class="news-card">
+        <img src="https://resources.premierleague.pulselive.com/photo-resources/premierleague/photo/2025/05/25/75b8e5dd-a6a5-4c69-9c68-b4aeda930a23/2025-05-25T162644Z_1850698722_UP1EL5P19OIDF_RTRMADP_3_SOCCER-ENGLAND-TOT-BHA-REPORT.JPG?width=1400&height=800" alt="Brighton vs Spurs">
+        <h2>Brighton score four at Spurs but don't qualify for Europe</h2>
+        <p class="date">May 25, 2025</p>
+        <p>Two goals from Hinshelwood, plus O'Riley and Gomez strikes, were not enough to earn Conference League football.</p>
+        <a href="full-article5.html">Read More →</a>
+      </article>
+
+      <article class="news-card">
+        <img src="https://resources.premierleague.pulselive.com/photo-resources/2025/05/25/b49af3f7-ec2f-4f9c-beee-fb77104619f1/FotoJet-2025-05-25T183352.552.jpg?width=1400&height=800" alt="Golden Glove Winners">
+        <h2>Raya and Sels share Premier League Golden Glove award</h2>
+        <p class="date">May 25, 2025</p>
+        <p>Arsenal and Nottingham Forest goalkeepers claim award for most clean sheets in the 2024/25 season</p>
+        <a href="full-article6.html">Read More →</a>
+      </article>
+
+     
+
+      
+    </section>
+  </main>
+
+  
+ <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="https://www.premierleague.com/resources/rebrand/v7.153.72/i/elements/pl-main-logo.png" alt="Premier League Logo">
+      </div>
+      <div class="footer-links">
+        <div class="link-column">
+          <h4>Competition</h4>
+          <a href="#">About the PL</a>
+          <a href="#">History</a>
+          <a href="#">Trophy</a>
+          <a href="#">Organisation</a>
+        </div>
+        <div class="link-column">
+          <h4>Clubs</h4>
+          <a href="#">All Clubs</a>
+          <a href="#">Stadiums</a>
+          <a href="#">Kits</a>
+        </div>
+        <div class="link-column">
+          <h4>More</h4>
+          <a href=" http://preml.ge/FantasyPremierLeague">Fantasy PL</a>
+          <a href="#">Official App</a>
+          <a href="#">Shop</a>
+        </div>
+      </div>
+      <div class="social-media">
+        <a href=" http://preml.ge/PremierLeagueFacebook"><i class="fab fa-facebook"></i></a>
+        <a href=" https://preml.ge/PremierLeagueX"><i class="fab fa-twitter"></i></a>
+        <a href="http://preml.ge/PremierLeagueInstagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://preml.ge/PremierLeagueYouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Premier League. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
